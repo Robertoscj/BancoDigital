@@ -10,7 +10,7 @@ namespace BancoDigital.Application.DTOs
          public int Id { get; set; }
         public int ClienteId { get; set; }
         public DateTime DataSolicitacao { get; set; } 
-        public string Status { get; set; } 
+        public string Status { get; set; } = null!;
         public int? Score { get; set; }
         public string? Justificativa { get; set; }
         public DateTime? DataResposta { get; set; }

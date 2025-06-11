@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BancoDigital.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97226f272a499bb8a80eae0711dfb34b23c0ff3d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b5291ab900053eb805690006c03d4afa0ac0e76")]
 [assembly: System.Reflection.AssemblyProductAttribute("BancoDigital.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BancoDigital.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,12 @@
+C:\BancoDigital\BancoDigital.Domain\bin\Debug\net8.0\BancoDigital.Domain.deps.json
+C:\BancoDigital\BancoDigital.Domain\bin\Debug\net8.0\BancoDigital.Domain.dll
+C:\BancoDigital\BancoDigital.Domain\bin\Debug\net8.0\BancoDigital.Domain.pdb
+C:\BancoDigital\BancoDigital.Domain\obj\Debug\net8.0\BancoDigital.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\BancoDigital\BancoDigital.Domain\obj\Debug\net8.0\BancoDigital.Domain.AssemblyInfoInputs.cache
+C:\BancoDigital\BancoDigital.Domain\obj\Debug\net8.0\BancoDigital.Domain.AssemblyInfo.cs
+C:\BancoDigital\BancoDigital.Domain\obj\Debug\net8.0\BancoDigital.Domain.csproj.CoreCompileInputs.cache
+C:\BancoDigital\BancoDigital.Domain\obj\Debug\net8.0\BancoDigital.Domain.sourcelink.json
+C:\BancoDigital\BancoDigital.Domain\obj\Debug\net8.0\BancoDigital.Domain.dll
+C:\BancoDigital\BancoDigital.Domain\obj\Debug\net8.0\refint\BancoDigital.Domain.dll
+C:\BancoDigital\BancoDigital.Domain\obj\Debug\net8.0\BancoDigital.Domain.pdb
+C:\BancoDigital\BancoDigital.Domain\obj\Debug\net8.0\ref\BancoDigital.Domain.dll

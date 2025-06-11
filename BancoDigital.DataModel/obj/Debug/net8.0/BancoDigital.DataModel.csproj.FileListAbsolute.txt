@@ -1,0 +1,12 @@
+C:\BancoDigital\BancoDigital.DataModel\bin\Debug\net8.0\BancoDigital.DataModel.deps.json
+C:\BancoDigital\BancoDigital.DataModel\bin\Debug\net8.0\BancoDigital.DataModel.dll
+C:\BancoDigital\BancoDigital.DataModel\bin\Debug\net8.0\BancoDigital.DataModel.pdb
+C:\BancoDigital\BancoDigital.DataModel\obj\Debug\net8.0\BancoDigital.DataModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\BancoDigital\BancoDigital.DataModel\obj\Debug\net8.0\BancoDigital.DataModel.AssemblyInfoInputs.cache
+C:\BancoDigital\BancoDigital.DataModel\obj\Debug\net8.0\BancoDigital.DataModel.AssemblyInfo.cs
+C:\BancoDigital\BancoDigital.DataModel\obj\Debug\net8.0\BancoDigital.DataModel.csproj.CoreCompileInputs.cache
+C:\BancoDigital\BancoDigital.DataModel\obj\Debug\net8.0\BancoDigital.DataModel.sourcelink.json
+C:\BancoDigital\BancoDigital.DataModel\obj\Debug\net8.0\BancoDigital.DataModel.dll
+C:\BancoDigital\BancoDigital.DataModel\obj\Debug\net8.0\refint\BancoDigital.DataModel.dll
+C:\BancoDigital\BancoDigital.DataModel\obj\Debug\net8.0\BancoDigital.DataModel.pdb
+C:\BancoDigital\BancoDigital.DataModel\obj\Debug\net8.0\ref\BancoDigital.DataModel.dll

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "9G++x1vtH2E=",
+  "dgSpecHash": "c385Hv2qnQE=",
   "success": true,
   "projectFilePath": "C:\\BancoDigital\\BancoDigital.Services\\BancoDigital.Services.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\npcms\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512"
+  ],
   "logs": []
 }
