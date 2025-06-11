@@ -1,11 +1,46 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "BancoDigital.DataModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BancoDigital.DataModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BancoDigital.DataModel.dll": {}
+        }
+      },
+      "BancoDigital.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BancoDigital.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BancoDigital.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BancoDigital.DataModel/1.0.0": {
+      "type": "project",
+      "path": "../BancoDigital.DataModel/BancoDigital.DataModel.csproj",
+      "msbuildProject": "../BancoDigital.DataModel/BancoDigital.DataModel.csproj"
+    },
+    "BancoDigital.Domain/1.0.0": {
+      "type": "project",
+      "path": "../BancoDigital.Domain/BancoDigital.Domain.csproj",
+      "msbuildProject": "../BancoDigital.Domain/BancoDigital.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "BancoDigital.DataModel >= 1.0.0",
+      "BancoDigital.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\npcms\\.nuget\\packages\\": {},
@@ -39,7 +74,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\BancoDigital\\BancoDigital.DataModel\\BancoDigital.DataModel.csproj": {
+              "projectPath": "C:\\BancoDigital\\BancoDigital.DataModel\\BancoDigital.DataModel.csproj"
+            },
+            "C:\\BancoDigital\\BancoDigital.Domain\\BancoDigital.Domain.csproj": {
+              "projectPath": "C:\\BancoDigital\\BancoDigital.Domain\\BancoDigital.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

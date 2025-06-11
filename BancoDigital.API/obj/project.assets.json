@@ -107,6 +107,55 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "BancoDigital.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "BancoDigital.DataModel": "1.0.0",
+          "BancoDigital.Domain": "1.0.0",
+          "BancoDigital.Services": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BancoDigital.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BancoDigital.Application.dll": {}
+        }
+      },
+      "BancoDigital.DataModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BancoDigital.DataModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BancoDigital.DataModel.dll": {}
+        }
+      },
+      "BancoDigital.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BancoDigital.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BancoDigital.Domain.dll": {}
+        }
+      },
+      "BancoDigital.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "BancoDigital.DataModel": "1.0.0",
+          "BancoDigital.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BancoDigital.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BancoDigital.Services.dll": {}
+        }
       }
     }
   },
@@ -473,10 +522,32 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "BancoDigital.Application/1.0.0": {
+      "type": "project",
+      "path": "../BancoDigital.Application/BancoDigital.Application.csproj",
+      "msbuildProject": "../BancoDigital.Application/BancoDigital.Application.csproj"
+    },
+    "BancoDigital.DataModel/1.0.0": {
+      "type": "project",
+      "path": "../BancoDigital.DataModel/BancoDigital.DataModel.csproj",
+      "msbuildProject": "../BancoDigital.DataModel/BancoDigital.DataModel.csproj"
+    },
+    "BancoDigital.Domain/1.0.0": {
+      "type": "project",
+      "path": "../BancoDigital.Domain/BancoDigital.Domain.csproj",
+      "msbuildProject": "../BancoDigital.Domain/BancoDigital.Domain.csproj"
+    },
+    "BancoDigital.Services/1.0.0": {
+      "type": "project",
+      "path": "../BancoDigital.Services/BancoDigital.Services.csproj",
+      "msbuildProject": "../BancoDigital.Services/BancoDigital.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "BancoDigital.Application >= 1.0.0",
+      "BancoDigital.Services >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.16",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
@@ -513,7 +584,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\BancoDigital\\BancoDigital.Application\\BancoDigital.Application.csproj": {
+              "projectPath": "C:\\BancoDigital\\BancoDigital.Application\\BancoDigital.Application.csproj"
+            },
+            "C:\\BancoDigital\\BancoDigital.Services\\BancoDigital.Services.csproj": {
+              "projectPath": "C:\\BancoDigital\\BancoDigital.Services\\BancoDigital.Services.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
