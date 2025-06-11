@@ -156,3 +156,240 @@ dotnet add BancoDigital.DataModel reference BancoDigital.Domain
 
 [BancoDigital.DataModel]
   └──> BancoDigital.Domain
+
+
+
+
+  📁 Caminho: BancoDigital.Domain/Entities
+Crie uma pasta chamada Entities e adicione os seguintes arquivos com as classes abaixo:
+
+📌 1. Cliente.cs
+namespace BancoDigital.Domain.Entities;
+
+public class Cliente
+{
+    public int Id { get; set; }
+    public string Nome { get; set; } = null!;
+    public string Documento { get; set; } = null!;
+    public string? Email { get; set; }
+    public string? Telefone { get; set; }
+    public DateTime DataCadastro { get; set; } = DateTime.UtcNow;
+    public bool CadastroCompleto { get; set; } = false;
+
+    // Navegação
+    public ICollection<SolicitacaoCredito> Solicitacoes { get; set; } = new List<SolicitacaoCredito>();
+
+    // Regra de domínio básica
+    public bool PodeSolicitarCredito()
+    {
+        return CadastroCompleto;
+    }
+}
+
+📌 2. SolicitacaoCredito.cs
+
+namespace BancoDigital.Domain.Entities;
+
+public class SolicitacaoCredito
+{
+    public int Id { get; set; }
+    public int ClienteId { get; set; }
+    public DateTime DataSolicitacao { get; set; } = DateTime.UtcNow;
+    public StatusSolicitacao Status { get; set; } = StatusSolicitacao.EmAndamento;
+    public int? Score { get; set; }
+    public string? Justificativa { get; set; }
+    public DateTime? DataResposta { get; set; }
+
+    // Navegação
+    public Cliente? Cliente { get; set; }
+
+    public bool PodeReenviar()
+    {
+        return Status == StatusSolicitacao.Rejeitada && DataResposta != null &&
+               DateTime.UtcNow.Subtract(DataResposta.Value).TotalDays >= 7;
+    }
+}
+
+📌 3. Usuario.cs
+
+namespace BancoDigital.Domain.Entities;
+
+public class Usuario
+{
+    public int Id { get; set; }
+    public string Nome { get; set; } = null!;
+    public string Email { get; set; } = null!;
+    public string SenhaHash { get; set; } = null!;
+    public PerfilUsuario Perfil { get; set; } = PerfilUsuario.Cliente;
+}
+
+📌 4. Enums/StatusSolicitacao.cs
+
+namespace BancoDigital.Domain.Enums;
+
+public enum StatusSolicitacao
+{
+    EmAndamento = 0,
+    Aprovada = 1,
+    Rejeitada = 2
+}
+
+📌 5. Enums/PerfilUsuario.cs
+
+namespace BancoDigital.Domain.Enums;
+
+public enum PerfilUsuario
+{
+    Admin = 0,
+    Analista = 1,
+    Cliente = 2
+}
+
+✅ O Que Fizemos Até Aqui:
+
+Todas as entidades essenciais foram criadas com propriedades e métodos de domínio.
+
+Criamos dois enums para representar status e perfis de forma tipada.
+
+Incluímos validações de domínio básicas como PodeSolicitarCredito() e PodeReenviar().
+
+📁 Estrutura de Pastas
+No projeto BancoDigital.Application, crie as seguintes pastas:
+
+/Requests
+/Responses
+/DTOs
+/Mappings
+
+✅ 1. DTOs: Objeto de Transferência Interno
+
+📄 DTOs/ClienteDto.cs
+
+namespace BancoDigital.Application.DTOs;
+
+public class ClienteDto
+{
+    public int Id { get; set; }
+    public string Nome { get; set; } = null!;
+    public string Documento { get; set; } = null!;
+    public string? Email { get; set; }
+    public string? Telefone { get; set; }
+    public bool CadastroCompleto { get; set; }
+}
+
+📄 DTOs/SolicitacaoCreditoDto.cs
+
+namespace BancoDigital.Application.DTOs;
+
+public class SolicitacaoCreditoDto
+{
+    public int Id { get; set; }
+    public int ClienteId { get; set; }
+    public DateTime DataSolicitacao { get; set; }
+    public string Status { get; set; } = null!;
+    public int? Score { get; set; }
+    public string? Justificativa { get; set; }
+    public DateTime? DataResposta { get; set; }
+}
+
+✅ 2. Requests (entrada do cliente/front)
+
+📄 Requests/ClienteRequest.cs
+
+namespace BancoDigital.Application.Requests;
+
+public class ClienteRequest
+{
+    public string Nome { get; set; } = null!;
+    public string Documento { get; set; } = null!;
+    public string? Email { get; set; }
+    public string? Telefone { get; set; }
+}
+
+
+📄 Requests/SolicitacaoCreditoRequest.cs
+
+namespace BancoDigital.Application.Requests;
+
+public class SolicitacaoCreditoRequest
+{
+    public int ClienteId { get; set; }
+}
+
+
+✅ 3. Responses (saída para o front)
+
+📄 Responses/ClienteResponse.cs
+
+namespace BancoDigital.Application.Responses;
+
+public class ClienteResponse
+{
+    public int Id { get; set; }
+    public string Nome { get; set; } = null!;
+    public string Documento { get; set; } = null!;
+    public string? Email { get; set; }
+    public string? Telefone { get; set; }
+    public bool CadastroCompleto { get; set; }
+}
+
+📄 Responses/SolicitacaoCreditoResponse.cs
+
+namespace BancoDigital.Application.Responses;
+
+public class SolicitacaoCreditoResponse
+{
+    public int Id { get; set; }
+    public string Status { get; set; } = null!;
+    public int? Score { get; set; }
+    public string? Justificativa { get; set; }
+    public DateTime DataSolicitacao { get; set; }
+    public DateTime? DataResposta { get; set; }
+}
+
+✅ 4. Mapeamento com AutoMapper
+
+Crie a pasta /Mappings e o seguinte perfil:
+
+📄 Mappings/AutoMapperProfile.cs
+
+using AutoMapper;
+using BancoDigital.Domain.Entities;
+using BancoDigital.Application.DTOs;
+using BancoDigital.Application.Requests;
+using BancoDigital.Application.Responses;
+using BancoDigital.Domain.Enums;
+
+namespace BancoDigital.Application.Mappings;
+
+public class AutoMapperProfile : Profile
+{
+    public AutoMapperProfile()
+    {
+        // Cliente
+        CreateMap<Cliente, ClienteDto>().ReverseMap();
+        CreateMap<Cliente, ClienteResponse>();
+        CreateMap<ClienteRequest, Cliente>();
+
+        // Solicitação Crédito
+        CreateMap<SolicitacaoCredito, SolicitacaoCreditoDto>()
+            .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()));
+        CreateMap<SolicitacaoCredito, SolicitacaoCreditoResponse>()
+            .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()));
+        CreateMap<SolicitacaoCreditoRequest, SolicitacaoCredito>();
+    }
+}
+
+🧠 Registro do AutoMapper (ex: em Program.cs da API)
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
+✅ Tudo Pronto Nesta Etapa
+Criados:
+
+DTOs internos de aplicação
+
+Requests e Responses para front-end
+
+Mapeamentos bidirecionais com AutoMapper
+
